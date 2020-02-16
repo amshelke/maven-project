@@ -22,7 +22,7 @@ pipeline
                     sh 'mvn validate'
                  }
 	    }
-
+        }
 	    stage ('compaile code')
 
 	     {
@@ -37,4 +37,3 @@ pipeline
     }
  }
 
-}
