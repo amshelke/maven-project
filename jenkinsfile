@@ -1,3 +1,4 @@
+
 pipeline 
  {
    agent any
@@ -21,9 +22,18 @@ pipeline
                     sh 'mvn validate'
                  }
 	    }
-  
-	  }
+
+	    stage ('compaile code')
+
+	     {
+	        steps 
+		{
+		    withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
+		    { 
+		    sh 'mvn compile'
+		     }
+                 }
+  	      }
     }
  }
-
 
