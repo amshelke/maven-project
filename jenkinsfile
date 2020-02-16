@@ -2,14 +2,17 @@ pipeline
  {
    agent any
     
-    stages ('scm checkout')
-    {
-      steps  
-
-      {
+    stages
+      { 
+       stage ('scm checkout')
+        {
+        steps 
+          {
           git branch: 'master', url: 'https://github.com/amshelke/maven-project.git'  
-      }
+          }
+       }
     }
-    
  }
+
+
 
