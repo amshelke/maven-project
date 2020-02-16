@@ -11,10 +11,8 @@ pipeline
           git branch: 'master', url: 'https://github.com/amshelke/maven-project.git'  
           }
        }
-    }
-
+    
          stage ('validate code')
-
 	  {
 	   steps 
 	    {
@@ -25,7 +23,7 @@ pipeline
 	    }
   
 	  }
-    
+    }
  }
 
 
