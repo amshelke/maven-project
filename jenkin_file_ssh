@@ -1,18 +1,21 @@
-pipeline 
- {
-   agent any
-        stages
-      { 
-         stage 
-           { 
-            steps
-             { 
-            sshagent(['cicd'])
-             {
-      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/tomcat-deploy-job/webapp/target/webapp.war ec2-user@172.31.2.163:/usr/share/tomcat/webapps/'
-             }
-           }
-        }
 
-      }
-    }
+	pipeline 
+          {
+          agent any
+    
+            stages
+                { 
+                  stage ('tomcatt_deplo')
+                    {
+                       steps 
+                            {
+			        sshagent(['cicd'])
+                      {
+            sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/tomcat-deploy-job/webapp/target/webapp.war ec2-user@172.31.2.163:/usr/share/tomcat/webapps/'
+                         }
+                                  
+                            }
+                      }
+                }
+            } 
+
