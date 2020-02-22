@@ -1,0 +1,30 @@
+pipeline 
+ {
+   agent any
+    
+    stages
+      { 
+       stage ('scm checkout')
+        {
+        steps 
+          {
+          git branch: 'master', url: 'https://github.com/amshelke/maven-project.git'  
+          }
+       }
+    
+         stage ('validate code')
+	  {
+	   steps 
+	    {
+	      withSonarQubeEnv(credentialsId: 'mysonar')
+	       {
+                  withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
+		   {
+		       sh 'clean mvn install sonar:sonar'
+		   }
+        
+	        }
+            }
+
+         } 
+     }
