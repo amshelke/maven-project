@@ -5,7 +5,7 @@
     
             stages
                 { 
-                  stage ('tomcatt_deplo')
+                  stage ('deppl')
                     {
                        steps 
                             {
