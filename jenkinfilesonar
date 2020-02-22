@@ -16,7 +16,7 @@ pipeline
 	  {
 	   steps 
 	    {
-	      withSonarQubeEnv(credentialsId: 'mysonar')
+	      withSonarQubeEnv(credentialsId: 'jenkin_sonar')
 	       {
                   withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
 		   {
