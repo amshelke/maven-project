@@ -16,9 +16,9 @@ pipeline
 	  {
 	   steps 
 	    {
-	      withSonarQubeEnv(credentialsId: 'jenkin_sonar')
+	      withSonarQubeEnv(credentialsId:'jenkin_sonar')
 	       {
-                  withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
+                  withMaven(jdk: 'LocalJDK1-8', maven:'localmaven')
 		   {
 		       sh 'clean mvn install sonar:sonar'
 		   }
