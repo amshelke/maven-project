@@ -1,0 +1,41 @@
+
+pipeline 
+ {
+   agent any
+     stages
+      { 
+       stage ('scm checkout')
+        {
+        steps 
+          {
+          git branch: 'master', url: 'https://github.com/amshelke/maven-project.git'  
+          }
+       }
+    
+    stage ('parallel steps')
+	  {
+            parallel 
+	     {
+	       stage ('test')
+	        { 
+		  steps 
+		    { 
+		        withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
+			{
+			  sh 'mvn test'
+		        }
+        	     }
+            stage ('compaile')
+	        { 
+		  steps 
+		    { 
+		      withMaven(jdk: 'LocalJDK1-8', maven: 'localmaven')
+		      {
+			  sh 'mvn compile'
+		   }
+                   
+	        }
+            }
+
+         } 
+     }
