@@ -1,8 +1,8 @@
 
 pipeline 
  {
-   agent any
-     stages
+   agent any  
+   stages
       { 
        stage ('scm checkout')
         {
@@ -25,6 +25,7 @@ pipeline
 			  sh 'mvn test'
 		        }
         	     }
+		    
             stage ('compaile')
 	        { 
 		  steps 
@@ -38,5 +39,5 @@ pipeline
             }
 
          } 
-     }
-}
+        }
+     }}}
